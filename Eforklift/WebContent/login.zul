@@ -1,0 +1,45 @@
+<?page title="Log in" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  border="normal" width="35%" height="auto" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.eforklift.gestor.LoginGestor')" onCancel="@command('cancelar')" >
+
+	<div>
+		<div style="background-color: black;"  >
+			<label value="Login" style="color: white; font-weight: bold" />
+		</div>
+		<separator/>
+		<div>
+			<vbox>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="User: " width="150px" />
+						</div>
+						<textbox class="form-control" width="250px" value="@bind(vm.user)" />
+					</hbox>
+				</div>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="Password: " />
+						</div>
+						<textbox class="form-control" onOK="@command('login')" width="250px" type="password" value="@bind(vm.password)"/>
+					</hbox>
+				</div>	
+				<div align="center" >
+					<button label="Login" sclass="btn-primary" onClick="@command('login')" />
+					<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')" />
+				</div>
+				<div align="left" >
+					<a onClick="@command('registerNow')"  >Register Now</a><separator orient="vertical" spacing="15px" />
+					<!-- <a  onClick="@command('forgotPass')" >Forgot your password?</a> -->
+				</div>
+			</vbox>		
+		</div>
+	</div>
+	
+
+	
+		
+</window>
+</zk>

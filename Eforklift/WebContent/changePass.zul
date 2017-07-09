@@ -1,0 +1,38 @@
+<?page title="Maintenance Password" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Maintenance Password" width="45%" height="auto" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.eforklift.gestor.ChangePass')" onCancel="@command('cancelar')" >
+
+		<div>
+		<div style="background-color: black;"  >
+			<label value="Change your Password" style="color: white; font-weight: bold" />
+		</div>
+		<separator/>
+		<div>
+			<vbox>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Password: " />
+						</div>
+						<textbox class="form-control" width="250px" type="password" value="@bind(vm.password)" constraint="no empty" />
+					</hbox>
+				</div>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Retype Password: " width="150px" />
+						</div>
+						<textbox class="form-control" width="250px" onOK="@command('save')" value="@bind(vm.retPass)" type="password" constraint="no empty" />
+					</hbox>
+				</div>	
+				<div align="center" >
+					<button label="Save" sclass="btn-primary" onClick="@command('save')" />
+					<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')" />
+				</div>
+			</vbox>		
+		</div>
+	</div>
+	
+</window>
+</zk>

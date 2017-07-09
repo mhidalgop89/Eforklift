@@ -1,0 +1,62 @@
+<?page title="Create User" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Create User" border="normal" width="55%" height="auto" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.eforklift.gestor.CreateUserGestor')" onCancel="@command('cancelar')" >
+
+		<div>
+		<div style="background-color: black;"  >
+			<label value="User Registration" style="color: white; font-weight: bold" />
+		</div>
+		<separator/>
+		<div>
+			<vbox>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Full Name: " width="150px" />
+						</div>
+						<textbox class="form-control" width="250px" value="@bind(vm.fullName)" constraint="no empty"  />
+					</hbox>
+				</div>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Email: " width="150px" />
+						</div>
+						<textbox class="form-control" width="250px" value="@bind(vm.email)" constraint="no empty" />
+					</hbox>
+				</div>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*User: " width="150px" />
+						</div>
+						<textbox class="form-control" width="250px" value="@bind(vm.user)" constraint="no empty"  />
+					</hbox>
+				</div>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Password: " />
+						</div>
+						<textbox class="form-control" id="txtPass"  width="250px" type="password" value="@bind(vm.password)" constraint="no empty"  />
+					</hbox>
+				</div>	
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Repeat Password: " />
+						</div>
+						<textbox class="form-control" onOK="@command('save')" width="250px" type="password" value="@bind(vm.repeatPass)" constraint="no empty"  />
+					</hbox>
+				</div>	
+				<div align="center" >
+					<button label="Save" sclass="btn-primary" onClick="@command('save')" />
+					<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')" />
+				</div>
+			</vbox>		
+		</div>
+	</div>
+
+</window>
+</zk>

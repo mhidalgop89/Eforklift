@@ -1,0 +1,36 @@
+<?page title="Auto Generated index.zul"?>
+<window title="Hello World!!" border="normal" width="200px">
+
+<label value="You are using: ${desktop.webApp.version}"/>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon">
+				<button  sclass="btn-success">
+					Go!
+				</button>
+			</span>
+			<textbox class="form-control"/>
+		</div><!-- /input-group -->
+	</div><!-- /.col-lg-6 -->
+	<div class="col-lg-6">
+		<div class="input-group">
+			<textbox class="form-control"/>
+			<span  class="input-group-btn">
+				<button  sclass="btn-success">
+					Go!
+				</button>
+			</span>
+		</div><!-- /input-group -->
+	</div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+
+New Content Here!
+
+<div class="input-group">
+	<span  class="input-group-addon">@</span>
+	<textbox class="form-control" placeholder="Username" />
+</div>
+
+</window>

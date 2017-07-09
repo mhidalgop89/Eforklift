@@ -1,0 +1,31 @@
+<?page title="Maintenance Manufacturer" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Maintenance Manufacturer" width="55%" height="auto" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.eforklift.gestor.CargarMantManufacturerGestor')" onCancel="@command('cancelar')" >
+
+<div>
+		<div style="background-color: black;"  >
+			<label value="Maintenance Manufacturer" style="color: white; font-weight: bold" />
+		</div>
+		<separator/>
+		<div>
+			<vbox>
+				<div>
+					<hbox>
+						<div width="150px" >
+							<label value="*Manufacturer Name: " />
+						</div>
+						<textbox class="form-control" onOK="@command('save')" width="250px" value="@bind(vm.manufacturerName)" constraint="no empty" />
+					</hbox>
+				</div>
+				<div align="center" >
+					<button label="Save" sclass="btn-primary" onClick="@command('save')" />
+					<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')" />
+				</div>
+			</vbox>		
+		</div>
+	</div>
+
+
+</window>
+</zk>

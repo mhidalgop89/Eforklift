@@ -1,0 +1,80 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window  title="Maintenance Items" border="3d" width="80%" height="auto" closable="true" onCancel="@command('cancelar')"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.eforklift.gestor.MantItemsGestor')" >
+<div width="100%" height="100%" >
+		<div width="100%" height="75px">
+			<borderlayout width="100%" height="100%" >
+				<west width="267px"  border="none"  > 
+					<div>
+						<image  style="align-items: left" src="images/newLogo.png"/>
+					</div> 
+				</west>
+				<center border="none">
+					
+				</center>
+				<east width="467px"  border="none">
+					<div align="right" style="position: relative ; top: 15px" > 
+					
+						<image  style="align-items: right" width="467px" height="50px" src="images/weloveparts.png"/>
+					</div> 
+				</east>
+				
+			</borderlayout>
+		</div>
+		<separator bar="true" orient="horizontal" />
+		<div width="100%" align="center">
+		
+		
+			<div width="75%" height="100%" align="center" >
+				
+				<div style="background-color:black" align="left" height="35px" >
+					<label style="color:white; font-weight: bold; position: relative; top: 10px; margin: 10px" value="Search Item"/>
+				</div>
+				<separator orient="horizontal" spacing="3px"/>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<textbox class="form-control" value="@bind(vm.param)" onOK="@command('buscar')" />
+							<span  class="input-group-btn">
+								<button  sclass="btn-primary" onClick="@command('buscar')">
+									Search
+								</button>
+							</span>
+						</div><!-- /input-group -->
+					</div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+				<separator/>
+				<div align="left" >
+					<button  sclass="btn-primary"  label="New Item" onClick="@command('editItem')" />
+				</div>
+				<separator orient="horizontal" spacing="10px"/>
+				<listbox model="@load(vm.listItems)"  emptyMessage=" no records founds " mold="paging"  pageSize="10" rows="10" >
+					<auxhead style="background-color:black" >
+						<auxheader style="background-color:black" align="left" colspan="5" label="Results"></auxheader>
+					</auxhead>
+					<listhead  >
+						<listheader label="Edit" style="background-color:white; color:black" />
+						<listheader label="Part Number" style="background-color:white; color:black" />
+						<listheader label="Description"  style="background-color:white; color:black" />
+						<listheader label="Manufacturer"  style="background-color:white; color:black" />
+						<listheader label="Price"  style="background-color:white; color:black" />
+					</listhead>
+					<template name="model" var="items" status="s">
+						<listitem >
+							<listcell> <image src="images/appbar.edit.minus.png" height="45px" onClick="@command('editItem',item=items)" 
+							width="45px" style="background-color:black"  /> </listcell>
+							<listcell label="@load(items.partNumber)" />
+							<listcell label="@load(items.name)" />
+							<listcell label="@load(items.manufacturerName)" />
+							<listcell style="color: blue;" label="Request quote"  onClick="@command('requestQuote',item=items)" />
+						</listitem>
+					</template>
+				</listbox>
+	
+			</div>
+		</div>
+			
+	</div>
+</window>
+</zk>

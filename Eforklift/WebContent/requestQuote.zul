@@ -1,0 +1,92 @@
+<?page title="Request Quote" contentType="text/html;charset=UTF-8"?>
+<?link rel="shortcut icon" href="images/icon.png" type="image/x-icon"?>
+<zk>
+<window title="Request Quote" border="none" closable="true" width="600px" height="auto" onCancel="@command('cancelar')"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.eforklift.gestor.RequestQuote')">
+	<div>
+		<vbox>
+			<div style="background-color: black;">
+				<label style="color: white" value="Request Quote"/>
+			</div>
+			<div>
+				<vbox>
+					<hbox>
+						<div width="150px">
+							<label value="Quantity*"/>
+						</div>
+						<textbox  class="form-control" width="80px"  value="@bind(vm.quantity)" /><label value="@load(vm.partNumberName)"/>
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Name"/>
+						</div>
+						<textbox  class="form-control" width="400px"   value="@bind(vm.name)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Company"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.company)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="E-mail*"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.email)" onBlur="@command('validaCorreo')"  
+						 />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Phone"/>
+						</div>
+						<textbox  class="form-control" width="400px"  value="@bind(vm.phone)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Fax"/>
+						</div>
+						<textbox  class="form-control" width="400px"  value="@bind(vm.fax)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Address"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.address)"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="City"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.city)"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="State/Province"/>
+						</div>
+						<textbox  class="form-control" width="400px"  value="@bind(vm.stateProvince)"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Postalcode"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.postalCode)"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Country"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.country)"  />
+					</hbox>
+					<label value="* required fields"/>
+					
+						<div align="center"  width="100%" >
+							<button label="Submit" sclass="btn-primary" onClick="@command('enviarCorreo')" />
+							<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')"/>
+						</div>
+					
+				</vbox>
+			</div>
+		</vbox>
+	</div>
+</window>
+</zk>

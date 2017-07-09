@@ -1,0 +1,100 @@
+<?page title="Maintenance Items" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+
+<window title="Maintenance Items"  border="3d" width="600px" height="auto" closable="true" onCancel="@command('cancelar')"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.eforklift.gestor.CargarMantItemsGestor')" >
+		
+
+
+	<div>
+		<vbox>
+			<div style="background-color: black;">
+				<label style="color: white" value="Maintenance Items"/>
+			</div>
+			<div>
+				<vbox>
+					
+					<vbox>
+						<div width="150px">
+							<label value="Name*"/>
+						</div>
+						<textbox  class="form-control" width="400px"   value="@bind(vm.item.name)" />
+					</vbox>
+					<vbox>
+						<div width="150px">
+							<label value="Part Number*"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.item.partNumber)" />
+					</vbox>
+					<hbox>
+						<div width="150px">
+							<label value="Dercription"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.item.descripcion)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Model"/>
+						</div>
+						<textbox  class="form-control" width="400px"  value="@bind(vm.item.models)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Serie"/>
+						</div>
+						<textbox  class="form-control" width="400px"  value="@bind(vm.item.serie)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Price*"/>
+						</div>
+						<doublebox  class="form-control" width="400px" value="@bind(vm.item.price)" constraint="no empty, no negative" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Show Price"/>
+						</div>
+						<checkbox id="chkShowPrice" class="form-control" width="400px" checked="@load(vm.item.showPrice eq 1?true:false)" />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Note"/>
+						</div>
+						<textbox  class="form-control" width="400px" multiline="true" height="100px"   value="@bind(vm.item.note)"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Quantity*"/>
+						</div>
+						<textbox  class="form-control" width="400px" value="@bind(vm.item.quantity)" constraint="no empty,no negative"  />
+					</hbox>
+					<hbox>
+						<div width="150px">
+							<label value="Manufacturer*"/>
+						</div>
+						<combobox id="cmbManufacturer" readonly="false"  
+								  model="@load(vm.lsManufacturer)"
+								  selectedItem="@bind(vm.objMAnufacturer)" ><!-- onSelect="@command('obtenerManufacturer',perio=self.selectedItem.value)" -->
+							<template name="model" var="man">
+									<comboitem label="@load(man.manufacturerName)" />
+							</template>
+						</combobox> <button onClick="@command('agregarManufacturer')" label="Add" />
+					</hbox>
+					
+					<label value="* required fields"/>
+					
+						<div align="center"  width="100%" >
+							<button label="Save" sclass="btn-primary" onClick="@command('guardar')" />
+							<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')"/>
+						</div>
+					
+				</vbox>
+			</div>
+		</vbox>
+	</div>
+
+		
+	
+</window>
+</zk>

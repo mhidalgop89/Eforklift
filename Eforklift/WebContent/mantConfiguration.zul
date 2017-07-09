@@ -1,0 +1,74 @@
+<?page title="Configuration Maintenance" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Configuration Maintenance" border="3d" width="600px" height="auto" closable="true" onCancel="@command('cancelar')"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.eforklift.gestor.MantConfigurationGestor')" >
+
+
+	
+		<div>
+			<vbox>
+				<div style="background-color: yellow;">
+					<label style="color: white" value="Modify Configuration"/>
+				</div>
+				<div>
+					<vbox>
+						
+						<hbox>
+							<div width="150px">
+								<label value="Name*"/>
+							</div>
+							<textbox  class="form-control" width="400px"   value="@bind(vm.conf.companyName)" />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="Address*"/>
+							</div>
+							<textbox  class="form-control" width="400px" value="@bind(vm.conf.companyAddress)" />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="Phone*"/>
+							</div>
+							<textbox  class="form-control" width="400px" value="@bind(vm.conf.companyPhone)" />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="Receiving Email*"/>
+							</div>
+							<textbox  class="form-control" width="400px"  value="@bind(vm.conf.companyEmail)" />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="Sernding Email*"/>
+							</div>
+							<textbox  class="form-control" width="400px"  value="@bind(vm.conf.emailEnvia)" />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="SMTP*"/>
+							</div>
+							<textbox  class="form-control" width="400px" value="@bind(vm.conf.emailSmtp)"  />
+						</hbox>
+						<hbox>
+							<div width="150px">
+								<label value="Password*"/>
+							</div>
+							<textbox  class="form-control" width="400px" value="@bind(vm.conf.emailPassword)" type="password"  />
+						</hbox>
+						
+						
+						<label value="* required fields"/>
+						
+							<div align="center"  width="100%" >
+								<button label="Save" sclass="btn-primary" onClick="@command('guardar')" />
+								<button label="Cancel" sclass="btn-primary" onClick="@command('cancelar')"/>
+							</div>
+						
+					</vbox>
+				</div>
+			</vbox>
+	</div>
+		
+
+</window>
+</zk>
